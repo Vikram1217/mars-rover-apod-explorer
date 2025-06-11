@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>>Mars Rover & Space Explorer</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- You can add a favicon later in the assets/images/ folder -->
+    <!-- <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"> -->
+  </head>
+  <body>
+    <header>
+      <h1>Mars Rover & Space Explorer</h1>
+    </header>
+
+    <main>
+      <section id="apod-section" class="apod-section">
+          <h2>Astronomy Picture of the Day</h2>
+          <div id="apod-container" class="apod-container">
+              <!-- APOD content will be loaded here by JavaScript -->
+              <p id="apod-loading-message">Loading APOD...</p>
+          </div>
+      </section>
+      <section class="controls-section">
+        <h2>Select Rover and Date</h2>
+        <form is="rover-form" id="rover-form">
+          <div class="form-group">
+            <label for="rover-select"> Choose a Rover:</label>
+            <select name="rover" id="rover-select" required>
+              <option value="curiosity" selected>Curiosity</option>
+              <option value="perseverance">Persevance</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="camera-select">Choose a Camera:</label>
+            <select name="camera" id="camera-select">
+              <option value="ALL" title="All Cameras">ALL</option>
+              <option value="FHAZ" title="Front Hazard Avoidance Camera">FHAZ</option>
+              <option value="RHAZ" title="Rear Hazard Avoidance Camera">RHAZ</option>
+              <option value="MAST" title="Mast Camera">MAST</option>
+              <option value="CHEMCAM" title="Chemistry and Camera Complex">CHEMCAM</option>
+              <option value="MAHLI" title="Mars Hand Lens Imager">MAHLI</option>
+              <option value="MARDI" title="Mars Descent Imager">MARDI</option>
+              <option value="NAVCAM" title="Navigation Camera">NAVCAM</option>
+              <option value="PANCAM" title="Panoramic Camera">PANCAM</option>
+              <option value="MINITES" title="Miniature Thermal Emission Spectrometer (Mini-TES)">MINITES</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sol-input">Martian Sol (Day):</label>
+            <input name="sol" id="sol-input" type="number" min="0" placeholder="e.g., 1000">
+          </div>
+
+          <p class="date-seperator">Or</p>
+
+          <div class="form-group">
+            <label for="earth-date-input">Earth Date:</label>
+            <input type="date" name="earth-date" id="earth-date-input" placeholder="MM-DD-YYYY">
+          </div>
+
+          <div class="form-group">
+            <button class="fetch-btn" type="submit" id="fetch-photos-btn">Fetch Photos</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="results-section">
+        <div class="message-area" id="message-area" role="status" aria-live="polite">
+          
+        </div>
+
+        <h2>Photo Gallery</h2>
+
+        <div class="photo-gallery-class" id="photo-gallery">
+          <!-- Mars rover photos will be dynamically inserted here by JavaScript -->
+            <p class="gallery-placeholder">Select rover and date then click "Fetch Photos" to see images</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+        <p>Powered by <a href="https://api.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA APIs</a></p>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <div id="modalMainContent" class="modal-content-area">
+            <button id="closeModalBtn" class="modal-close-button">&times;</button>
+            <button id="prevModalImageBtn" class="modal-nav prev-modal-btn" style="display: none;" title="Previous image" style="display: flex;">&lt;</button>
+            <img id="modalImage" src="" alt="Enlarged rover photo">
+            <button id="nextModalImageBtn" style="display: none;" class="modal-nav next-modal-btn" title="Next image" style="display: flex;">&gt;</button>
+        </div>
+    </div>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html> 

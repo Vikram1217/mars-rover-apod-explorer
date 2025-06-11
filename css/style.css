@@ -1,0 +1,384 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(236, 229, 229);
+  color: rgb(0, 0, 0)
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: rgb(188, 185, 185);
+  color: white;
+  padding: 1em;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  text-align: center;
+  text-shadow: 5px 5px 4px black;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  flex-grow: 1;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.apod-section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%; /* Let it take available width */
+    max-width: 700px; /* Or a suitable max-width for the whole section, can be wider than media */
+    /* REMOVE THE FIXED HEIGHT: height: 300px; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.apod-section h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333; /* Darker text for heading */
+}
+
+.apod-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.apod-media-wrapper {
+  width: 100%;
+  max-width: 600px; /* This constrains the media width */
+  height: 300px;   /* THIS IS WHERE THE FIXED HEIGHT FOR THE MEDIA GOES */
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* object-fit: contain;  <-- This property belongs on the <img> or <iframe>, not the wrapper */
+  overflow: hidden;
+  border-radius: 6px; /* Optional for the wrapper */
+}
+
+.apod-container img,
+.apod-container iframe {
+  display: block; /* Added for consistency */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;   /* For aspect ratio with contain */
+  height: auto;  /* For aspect ratio with contain */
+  object-fit: contain; /* Correctly on the media element */
+  border-radius: 4px; /* Optional for the media itself */
+}
+
+.apod-title {
+  color: #000; /* Or #333, #444 for better contrast on light bg */
+  font-size: 1.4em; /* Was 10px, which is very small for a title */
+  font-weight: bold;
+  text-align: center;
+  /* margin-top: 10px; /* Handled by gap on .apod-container */
+}
+
+.apod-explanation { /* Keep your styling for explanation */
+  color: #000; /* Or #555 */
+  font-size: 0.95em; /* Was 10px, which is very small */
+  line-height: 1.6;
+  text-align: justify; /* Or left */
+  max-width: 650px; /* Constrain text width for readability */
+  /* margin-left: auto; /* Not needed if align-items: center on parent */
+  /* margin-right: auto; */
+}
+
+/* Add a style for the optional copyright */
+.apod-copyright {
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 5px; /* Smaller margin as it's less important */
+  color: #777;
+}
+
+/* Optional: Style for APOD error messages */
+.apod-error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+}
+
+.controls-section {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 12px black;
+  padding: 15px;
+  background-color: rgb(221, 207, 207);
+}
+
+.controls-section h2{
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+#rover-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group button
+{
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid rgb(88, 84, 84);
+  border-radius: 5px;
+}
+
+.form-group button {
+  background-color: rgb(35, 214, 35);
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: rgb(22, 187, 22);
+}
+
+.date-seperator {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  margin: -10px
+}
+
+.results-section {
+  margin-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 12px black;
+  padding: 20px;
+  background-color: rgb(221, 207, 207);
+}
+
+.results-section h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.message-area {
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+#photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+  gap: 10px;
+  justify-content: center;
+}
+
+#photo-gallery a {
+  display: block;
+  margin: 10px; /* Example - this will be around the anchor */
+}
+
+.gallery-thumbnail-item {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  outline-offset: 2px;
+}
+
+.gallery-thumbnail-item:focus-visible {
+    outline: 2px solid var(--primary-color, blue);
+}
+
+.gallery-thumbnail-item img {
+    width: 150px;  /* Or your desired thumbnail width */
+    height: 150px; /* Or your desired thumbnail height */
+    display: block; /* Usually good for images */
+    object-fit: cover;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(183, 157, 157);
+    box-shadow: 2px 2px 4px  black;
+}
+
+
+.gallery-thumbnail-item:hover img {
+  transform: scale(1.10);
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  transition: transform 0.25s;
+  border-color: rgb(67, 67, 239);
+}
+
+.gallery-placeholder {
+  color: rgb(85, 77, 77);
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(188, 185, 185);
+  color: white;
+  font-size: 0.8em;
+  margin-top: auto;
+}
+
+footer a {
+  color: aqua;
+}
+
+footer a:hover {
+  color: aquamarine;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.50);
+
+  /* For centering the .modal-content-area */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content-area {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+  position: relative; /* For positioning the close button absolutely within this area */
+  max-width: 90%; /* Max width of the content area */
+  max-height: 90vh; /* Max height of the content area (90% of viewport height) */
+  overflow: auto; /* If content inside (image+text) is too big, this area will scroll */
+
+  /* For testing, give it a temporary size */
+  /* width: 500px;    */
+  /* height: 400px;   */
+}
+
+/* Basic style for the close button, just to make it visible for now */
+.modal-close-button {
+  position: absolute;
+  top: 05px;
+  right: 05px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close-button:hover {
+  transform: scale(1.10);
+  /*transition: transform 0.25s;*/
+}
+
+#prevModalImageBtn {
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  color: #faf8f8;
+  font-weight: bold;
+}
+
+#prevModalImageBtn:hover{
+  font-weight: bolder;
+  color: aqua;
+}
+
+#nextModalImageBtn {
+  display: none;
+  position: absolute;
+  top: 300px;
+  right: 0px;
+  color: #faf8f8;
+  font-weight: bold;
+}
+
+#nextModalImageBtn:hover{
+  font-weight: bolder;
+  color: aqua;
+}
+
+.modal-nav{
+  background-color: rgba(50, 50, 50, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  font-size: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent them from shrinking too much in the flex row */
+}
+
+.modal-nav:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Basic style for the image placeholder, just to see it */
+#modalImage {
+  display: block; /* Helps with layout */
+  max-width: 100%; /* Ensure it doesn't overflow .modal-content-area for now */
+  max-height: calc(90vh - 80px); /* Approx max height, considering padding and button space */
+  margin: 0 auto; /* Center if it's narrower than .modal-content-area */
+  background-color: #eee; /* Placeholder color */
+  min-height: 50px; /* So you can see the box */
+}
