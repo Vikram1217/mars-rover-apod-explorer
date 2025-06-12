@@ -331,8 +331,6 @@ footer a:hover {
 }
 
 #prevModalImageBtn {
-  position: absolute;
-  top: 300px;
   left: 0px;
   color: #faf8f8;
   font-weight: bold;
@@ -345,8 +343,6 @@ footer a:hover {
 
 #nextModalImageBtn {
   display: none;
-  position: absolute;
-  top: 300px;
   right: 0px;
   color: #faf8f8;
   font-weight: bold;
@@ -358,6 +354,9 @@ footer a:hover {
 }
 
 .modal-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Shift back up by 50% OF ITS OWN HEIGHT */
   background-color: rgba(50, 50, 50, 0.5);
   color: white;
   border: none;
