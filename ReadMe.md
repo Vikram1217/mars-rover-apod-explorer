@@ -36,8 +36,6 @@ A dynamic single-page web application that allows users to explore the Red Plane
 
 ## Live Demo
 
-*   **View the live project here:** `[YOUR GITHUB PAGES OR NETLIFY/VERCEL DEPLOYMENT LINK HERE]`
-    *   *(Example: `https://yourusername.github.io/mars-rover-apod-explorer/`)*
-    *   *(Note: If you haven't deployed it yet, you can add "Deployment link coming soon!" or remove this line for now and add it later.)*
+*   **View the live project here:** `https://vikram1217.github.io/mars-rover-apod-explorer/`
 
 ---
