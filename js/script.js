@@ -280,6 +280,7 @@ function updateModalNavButtons(){
 
 async function fetchAndDisplayAPOD() {
   const api_url = `${APOD_BASE_URL}?api_key=${API_KEY}`;
+  console.log(api_url);
   
   const apodContainer = document.getElementById('apod-container');
   const loadingMessage = document.getElementById('apod-loading-message');
