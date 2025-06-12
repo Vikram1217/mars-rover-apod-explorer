@@ -279,7 +279,7 @@ function updateModalNavButtons(){
 }
 
 async function fetchAndDisplayAPOD() {
-  const api_url = `https://api.nasa.gov/planetary/apod/?api_key=${API_KEY}`;
+  const api_url = `${APOD_BASE_URL}?api_key=${API_KEY}`;
   console.log(api_url);
   
   const apodContainer = document.getElementById('apod-container');
@@ -290,7 +290,7 @@ async function fetchAndDisplayAPOD() {
   }
 
   try{
-    const response = await fetch(`https://api.nasa.gov/planetary/apod/?api_key=${API_KEY}`);
+    const response = await fetch(api_url);
 
     if(!response.ok){
       const errorText = response.statusText || 'Failed to fetch APOD';
