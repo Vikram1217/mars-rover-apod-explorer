@@ -290,7 +290,7 @@ async function fetchAndDisplayAPOD() {
   }
 
   try{
-    const response = await fetch(api_url);
+    const response = await fetch(`https://api.nasa.gov/planetary/apod/?api_key=${API_KEY}`);
 
     if(!response.ok){
       const errorText = response.statusText || 'Failed to fetch APOD';
