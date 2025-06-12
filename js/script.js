@@ -279,7 +279,7 @@ function updateModalNavButtons(){
 }
 
 async function fetchAndDisplayAPOD() {
-  const api_url = `${APOD_BASE_URL}?api_key=${API_KEY}`;
+  const api_url = `https://api.nasa.gov/planetary/apod/?api_key=${API_KEY}`;
   console.log(api_url);
   
   const apodContainer = document.getElementById('apod-container');
